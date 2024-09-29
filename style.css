@@ -1,0 +1,41 @@
+body{
+    margin:0px;
+
+}
+.navigation {
+    height: 100px;
+    width: 100vw;
+    background-color: black;
+    color: aliceblue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.navigation ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
+    padding:50px;
+    width: 100%;
+}
+
+.navigation ul li {
+    margin: 0 10px;
+}
+
+.navigation a {
+    color: white;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 100px; 
+    width: auto;  
+}
+main{
+    display: flex;
+justify-content: center;
+align-items: center;
+}

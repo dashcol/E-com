@@ -7,46 +7,43 @@
 
 body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color: #f8f9fa;
+    background-color: #e9f0f5; /* Light blue-gray background */
     color: #333;
-    line-height: 1.6; /* Set a consistent line-height */
+    line-height: 1.6;
 }
 
 /* Navigation bar */
 .navigation {
     height: 80px;
-    background-color: #343a40;
+    background-color: #2c3e50; 
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .navigation ul {
     list-style: none;
     display: flex;
-    align-items: center;
-}
-
-.navigation ul li {
-    margin: 0 15px;
-}
+    grid-auto-flow: column; 
+    gap: 30px;
+ }
 
 .navigation a {
-    color: #f8f9fa;
+    color: #ecf0f1; 
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .navigation a:hover {
-    color: #17a2b8; /* Highlight color on hover */
-    transform: scale(1.1); /* Slight scaling animation on hover */
+    color: #1abc9c; /* Teal hover color */
+    transform: scale(1.1); /* Slight scaling animation */
 }
 
 .logo-img {
-    height: 60px;
+    height: 85px;
     width: auto;
 }
 
@@ -57,9 +54,9 @@ body {
 }
 
 #sec1 {
-    background-color: #fd7e14; /* Bright orange for the hero section */
+    background-color: #1abc9c; /* Teal for hero section */
     color: whitesmoke;
-    animation: fadeIn 1s ease-in-out; /* Fade in animation */
+    animation: fadeIn 1s ease-in-out; /* Fade-in animation */
 }
 
 #sec1 h1, #sec1 p {
@@ -89,57 +86,56 @@ body {
 
 /* Button styling */
 .shopButton {
-    background-color: #343a40;  
-    color: white;             
-    padding: 15px 30px;         
-    border: none;              
-    border-radius: 5px;        
-    font-size: 16px;           
-    font-weight: bold;         
-    cursor: pointer;            
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
-    transition: background-color 0.3s ease, transform 0.3s ease; 
+    background-color: #2c3e50; /* Navy blue */
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .shopButton:hover {
-    background-color: #17a2b8;  
+    background-color: #2980b9; /* Bright blue hover */
     transform: translateY(-5px); /* Lift the button on hover */
 }
 
 .shopButton:active {
-    background-color: #cc3700;  
-    transform: translateY(0); /* Reset the lift on click */
+    background-color: #34495e; /* Darker navy on click */
+    transform: translateY(0); /* Reset lift on click */
 }
 
 /* Shop by category */
 #sec2 {
-    background-color: #6f42c1;
+    background-color: #3498db; /* Bright blue */
     color: white;
 }
 
 /* Featured products */
 #sec3 {
-    background-color: #28a745;
+    background-color: #34495e; /* Dark blue-gray */
     padding: 50px 0;
 }
 
 .ProMan {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Grid with responsive column sizing */
+    gap: 20px; /* Grid gap between products */
     padding: 0 20px;
 }
 
 .products {
     margin-top: 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Ensure spacing between image and details */
+    display: grid;
+    grid-template-rows: auto 1fr auto; /* Image, text, and spacing for details */
+    justify-items: center;
     height: 320px;
     width: 200px;
-    background-color: #f8f9fa;
-    color: #343a40;
+    background-color: #f7f9f9; /* Light background for cards */
+    color: #34495e;
     border-radius: 15px;
     text-align: center;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
@@ -159,7 +155,7 @@ body {
 
 .products:hover {
     transform: translateY(-10px);
-    background-color: #e9ecef;
+    background-color: #ecf0f1; /* Slightly lighter gray on hover */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
@@ -170,12 +166,12 @@ body {
 /* Product card image styling */
 .imgBox {
     width: auto;
-    height: 200px; 
-    overflow: hidden; 
+    height: 200px;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 10px; 
+    border-radius: 10px;
 }
 
 /* Product details styling */
@@ -185,22 +181,21 @@ body {
 
 /* Customer testimonials */
 #sec4 {
-    background-color: #343a40;
+    background-color: #2c3e50; /* Dark navy for testimonial section */
     color: white;
     padding: 60px 0;
 }
 
 .testimonials {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap; /* Allow testimonials to wrap */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid for testimonials */
     gap: 20px;
     padding: 0 20px;
 }
 
 .Cbox {
     margin-top: 50px;
-    background-color: #f8f9fa;
+    background-color: #ecf0f1;
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
@@ -211,29 +206,29 @@ body {
 
 .Cbox:hover {
     transform: translateY(-10px);
-    background-color: #e9ecef;
+    background-color: #dcdde1; /* Light gray hover effect */
 }
 
 .Cbox p {
     font-size: 14px;
     margin-bottom: 10px;
-    color: #343a40;
+    color: #34495e;
 }
 
 .Cbox h4 {
     font-size: 16px;
     font-style: italic;
-    color: #6f42c1;
+    color: #3498db;
 }
 
 /* Footer styling */
 .footer {
-    background-color: #343a40;
+    background-color: #2c3e50;
     color: white;
     text-align: center;
-    /* padding: 20px; */
     font-size: 14px;
-    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); 
+    padding: 20px;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Animation for the entire page loading */

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+    <div class="container">
+        <div class="register">
+           <input type="radio" id="sign-up-radio" name="auth" onclick="toggleForm('signup')">
+           <label for="sign-up-radio">Sign Up</label>
+           
+           <input type="radio" id="sign-in-radio" name="auth" onclick="toggleForm('signin')">
+           <label for="sign-in-radio">Sign In</label>
+        </div>
+   
+       <div class="signin">
+           <h1><b>SIGN IN</b></h1>
+           <div class="input">
+               <input type="email" placeholder="Email" id="userEmail" name="email">
+               <input type="password" placeholder="Password" id="password" name="pass">
+           </div>
+           <button onclick="signIn()">Sign In</button>
+           <p>Don't have an account? <a href="#">Sign up here</a></p>
+       </div>
+   
+       <div class="signup">
+           <h1><b>SIGN UP</b></h1>
+           <div class="input">
+               <input type="text" placeholder="Fullname" id="name" name="name">
+               <input type="email" placeholder="Email" id="email" name="email">
+               <input type="password" placeholder="Password" id="signinPassword" name="pass">
+               <input type="password" placeholder=" Confirm Password" id="confirmPassword" name="pass">
+           </div>
+           <button onclick="checkDetails()">Sign Up</button>
+           <p>Already have an account? <a href="#">Sign in here</a></p>
+       </div>
+     </div>
+    
+
+
+            <script>
+                function toggleForm(form) {
+                    document.querySelector('.signin').style.display = 'none';
+                    document.querySelector('.signup').style.display = 'none';
+            
+                    if (form === 'signin') {
+                        document.querySelector('.signin').style.display = 'block';
+                    } else if (form === 'signup') {
+                        document.querySelector('.signup').style.display = 'block';
+                    }
+                }
+                function checkDetails() {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('signinPassword').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !emailPattern.test(email)) {
+        alert("Please enter a valid email.");
+        return;
+    }
+    if (!password || !confirmPassword) {
+        alert("Please fill in both password fields.");
+        return;
+    }
+    if (password === confirmPassword) {
+        alert("Sign Up successful!");
+        localStorage.setItem("email", email);
+        localStorage.setItem("password", confirmPassword); 
+
+    } else {
+        alert("Passwords do not match. Please try again.");
+    }
+}
+    
+    
+    //SIGN IN
+    function signIn() {
+    const email = localStorage.getItem('email');
+    const password = localStorage.getItem('password');
+
+
+    const userEmail = document.getElementById('userEmail').value;
+    const userPassword = document.getElementById('password').value;
+
+    
+    if (!email || !password) {
+        alert("No account found. Please sign up first.");
+        return;
+    }
+
+    if (userEmail === email && userPassword === password) {
+        alert("Welcome!");
+    } else {
+        alert("Invalid email or password. Please try again.");
+    }
+}
+
+
+
+
+
+              </script>
+              <script src="function .js"></script>
+</body>
+</html>

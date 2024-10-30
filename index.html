@@ -1,109 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>shopNext</title>
-</head>
-<body>
-<header>
-    <nav class="navigation">
-    <div>
-         <img src="images/logo.png" alt="logo"  class="logo-img">
-    </div>
-
-      
-     <ul>
-       <li><a href="">Home</a></li>
-       <li>   <a href="cart/index.html">Shop</a></li>
+  </head>
+  <body>
+    <header>
+      <nav class="navigation">
+        <div>
+          <img src="images/logo.png" alt="logo" class="logo-img" />
+        </div>
+        <ul>
+          <li><a href="">Home</a></li>
+          <li><a href="cart/index.html">Shop</a></li>
           <li><a href="about.html" target="_blank">About Us</a></li>
-        <li> <a href="">Contact</a></li>
-         <li>  <a href="login page/index.html">Login</a></li>
-     </ul>
-       </nav>
-</header>
+          <li><a href="">Contact</a></li>
+          <li><a href="login page/index.html">Login</a></li>
+        </ul>
+      </nav>
+    </header>
     <main class="main">
       <section class="section" id="sec1">
-        <h1>
-            Welcome to Our Online Store
-        </h1>
-        <p>
-            Discover the best products at unbeatable prices
-        </p>
+        <h1>Welcome to Our Online Store</h1>
+        <p>Discover the best products at unbeatable prices</p>
+        <button class="shopButton">
+          <a href="./search/search.html" target="_blank">Shop Now</a>
+        </button>
+        <p class="blur-text">Special Offer! Get 20% off on electronics</p>
+      </section>
 
-          
-             <button class="shopButton"> Shop Now</button>
-             <p class="blur-text">Special Offer! Get 20% off on electronics</p>
-
-    </section>
-
-            <section class="section" id="sec2">
-               <div>
-                <h1><b>Shop By Category</b></h1>
-               </div>
-              <div class="contain">
-                <div class="category">
-                  <div class="imgBox"> <img src="images/elctronics.jpg"></div>
-                  <h4>Electronics</h4>
-                 </div>
-  
-  
-                 <div class="category">
-                  <div class="imgBox"><img src="images/toys.jpg"></div>
-                  <h4>TOys</h4>
-                 </div>
-  
-                 <div class="category">
-                  <div class="imgBox"> <img src="images/books.jfif"></div>
-                  <h4>Books</h4>
-                 </div>
-  
-  
-                 <div class="category">
-                  <div class="imgBox"> <img src="images/fashion.jfif"></div>
-                  <h4>Fashion</h4>
-                 </div>
-              </div>
-              
-            </section>
-
-          <section class="section" id="sec3"> 
-            <div> <h1><b>Featured prodcuts</b></h1></div>
-            <div class="ProMan">
-            <div class="products">
-             <div class="imgBox"> <img src="images/phone.jpg" alt="product1"></div>
-             <div class="details">
-              <h4>Product 1</h4>
-              <p>$49.99</p>
+      <section class="section" id="sec2">
+        <div>
+          <h1><b>Shop By Category</b></h1>
+        </div>
+        <div class="contain">
+          <div class="category">
+            <div class="imgBox">
+              <img src="images/elctronics.jpg" alt="Electronics" />
             </div>
-                </div>
+            <h4>Electronics</h4>
+          </div>
+          <div class="category">
+            <div class="imgBox"><img src="images/toys.jpg" alt="Toys" /></div>
+            <h4>Toys</h4>
+          </div>
+          <div class="category">
+            <div class="imgBox">
+              <img src="images/books.jfif" alt="Books" />
+            </div>
+            <h4>Books</h4>
+          </div>
+          <div class="category">
+            <div class="imgBox">
+              <img src="images/fashion.jfif" alt="Fashion" />
+            </div>
+            <h4>Fashion</h4>
+          </div>
+        </div>
+      </section>
 
-                <div class="products">
-                 <div class="imgBox"> <img src="images/camera.jpg" alt="product2"></div>
-                 <div class="details">
-                  <h4>Product 2</h4>
-                  <p>$89.99</p>
-                  </div>
-                    </div>
+      <section class="section">
+        <div class="ProMan">
+          <h1><b>Featured Products</b></h1>
+          <!-- Added ID 'featured-products' to match JavaScript reference -->
+          <div id="featured-products" class="products"></div>
+        </div>
+      </section>
 
-                    <div class="products">
-                     <div class="imgBox"> <img src="images/protein.jpg" alt="product3"></div>
-                     <div class="details">
-                      <h4>Product 3</h4>
-                      <p>$19.99</p>
-                    </div>
-                        </div>
-
-                        <div class="products">
-                          <div class="imgBox"><img src="images/girl.jpeg" alt="product4"></div>
-                          <div class="details">
-                        <h4>Product 4</h4>
-                        <p>$9.99</p>
-                       </div>
-                            </div>
-                          </div>
-            </section class="section" id="sec4">
+      <section class="section" id="sec4">
         <div class="table">
           <table border="1" cellpadding="10" cellspacing="0">
             <thead>
@@ -112,7 +78,7 @@
                 <th rowspan="2">Product</th>
                 <th rowspan="2">Price</th>
                 <th rowspan="2">Feature</th>
-                <th colspan="2">Details</th> <!-- "Details" column spanning two sub-columns -->
+                <th colspan="2">Details</th>
               </tr>
               <tr>
                 <th>Size</th>
@@ -139,51 +105,92 @@
             </tbody>
           </table>
         </div>
-            
-   
-  
-            <section>
- 
+      </section>
 
+      <section class="section" id="sec5">
+        <h1><b>Customer Testimonials</b></h1>
+        <div class="testimonials">
+          <div class="Cbox">
+            <p>"Amazing products! Fast shipping and great customer service"</p>
+            <h4><em>- John Doe</em></h4>
+          </div>
+          <div class="Cbox">
+            <p>"Fantastic quality and quick delivery"</p>
+            <h4><em>- Dalton Wick</em></h4>
+          </div>
+          <div class="Cbox">
+            <p>"Impressive selection and easy to shop"</p>
+            <h4><em>- Sarah Lee</em></h4>
+          </div>
+          <div class="Cbox">
+            <p>"Great deals, will shop here again!"</p>
+            <h4><em>- Alex Kim</em></h4>
+          </div>
+        </div>
+      </section>
 
-
-            </section>
-           <section class="section" id="sec4">
-            <h1><b>Customer Testimonials</b></h1>
-            <div class="testimonials">
-               <div class="Cbox">
-             <p>"Amazing products! Fast shipping and great customer service"</p>
-             <h4><em>-John Doe</em></h4>
-               </div>
-
-               <div class="Cbox">
-                <p>"Amazing products! Fast shipping and great customer service"</p>
-                <h4><em>-Dalton Wick</em></h4>
-                  </div>
-
-                  <div class="Cbox">
-                    <p>"Amazing products! Fast shipping and great customer service"</p>
-                    <h4><em>-Spider Man</em></h4>
-                      </div>
-
-                      <div class="Cbox">
-                        <p>"Amazing products! Fast shipping and great customer service"</p>
-                        <h4><em>-Shakti Man</em></h4>
-                          </div>
-
-
-              </div>
-                                        
- 
-            </section>
-            <footer class="footer">
-              <p> &copy; 2024 shopNext. All rights reserved.</p>
-          </footer>
-       
+      <footer class="footer">
+        <p>&copy; 2024 shopNext. All rights reserved.</p>
+      </footer>
     </main>
 
+    <script>
+      // Using consistent function names and ensuring variables are properly referenced
+      function fetchDataCallback(url, callback) {
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", url, true);
+        xhr.onload = function () {
+          if (xhr.status >= 200 && xhr.status < 300) {
+            callback(null, JSON.parse(xhr.responseText));
+          } else {
+            callback(xhr.statusText, null);
+          }
+        };
+        xhr.onerror = function () {
+          callback(xhr.statusText, null);
+        };
+        xhr.send();
+      }
 
+      function fetchDataPromise(url) {
+        return new Promise((resolve, reject) => {
+          fetchDataCallback(url, (error, data) => {
+            if (error) {
+              reject(error);
+            } else {
+              resolve(data);
+            }
+          });
+        });
+      }
+      document.addEventListener("DOMContentLoaded", async () => {
+        const featuredProductsContainer =
+          document.getElementById("featured-products");
+        const apiUrl = "https://fakestoreapi.com/products";
 
-    
-</body>
+        try {
+          const data = await fetchDataPromise(apiUrl);
+          if (data && data.length > 0) {
+            featuredProductsContainer.innerHTML = "";
+            data.slice(0, 10).forEach((product) => {
+              const productElement = document.createElement("div");
+              productElement.className = "product";
+              productElement.innerHTML = `
+                        <img src="${product.image}" alt="${product.title}">
+                        <h3>${product.title}</h3>
+                        <p>$${product.price.toFixed(2)}</p>`;
+              featuredProductsContainer.appendChild(productElement);
+            });
+          } else {
+            featuredProductsContainer.innerHTML =
+              "<p>No products available</p>";
+          }
+        } catch (error) {
+          console.error("Error displaying products:", error);
+          featuredProductsContainer.innerHTML =
+            "<p>Unable to load products</p>";
+        }
+      });
+    </script>
+  </body>
 </html>

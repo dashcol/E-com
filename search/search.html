@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Search Products</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="head">E-Commerce Product Page</h1>
+      <div class="search">
+        <input
+          type="text"
+          id="search"
+          class="search-bar"
+          placeholder="Search for Products..."
+          oninput="applyFilters()"
+        />
+        <div class="dropdown">
+          <select
+            id="price-range"
+            class="form-control"
+            onchange="applyFilters()"
+          >
+            <option value="">Select Price Range</option>
+            <option value="0-50">Under $50</option>
+            <option value="51-100">$51-$100</option>
+            <option value="101-200">$101-$200</option>
+            <option value="201-300">$201-$300</option>
+            <option value="301-500">$301-$500</option>
+            <option value="501-1000">$501-$1000</option>
+          </select>
+        </div>
+      </div>
+      <div id="product-list" class="products"></div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("products.json")
+          .then((response) => response.json())
+          .then((data) => {
+            window.products = data;
+            displayProducts(data);
+          })
+          .catch((error) => {
+            console.error("Error Fetching products", error);
+            alert("Failed to load products. Please try again later.");
+          });
+      });
+
+      function displayProducts(products) {
+        const productList = document.getElementById("product-list");
+        productList.innerHTML = "";
+        products.forEach((product) => {
+          const card = document.createElement("div");
+          card.classList.add("card");
+
+          card.innerHTML = `
+            <img src="${product.image}" class="card-img" alt="${product.title}">
+            <div class="card-body">
+              <h5 class="card-title">${product.title}</h5>
+              <p class="card-text">${product.description}</p>
+              <p class="card-text">$${product.price.toFixed(2)}</p>
+              <div class="quantity">
+                <input type="number" class="quantity-input" value="1" min="1">
+                <a href="#" class="cart-button add-to-cart" data-product='${JSON.stringify(
+                  product
+                )}'>Add to Cart</a>
+              </div>
+            </div>
+          `;
+          productList.appendChild(card);
+        });
+
+        document.querySelectorAll(".add-to-cart").forEach((button) => {
+          button.addEventListener("click", (event) => {
+            event.preventDefault();
+            const product = JSON.parse(
+              event.target.getAttribute("data-product")
+            );
+            const quantityInput = event.target.previousElementSibling;
+            const quantity = parseInt(quantityInput.value);
+            addToCart(product, quantity);
+          });
+        });
+      }
+
+      function addToCart(product, quantity) {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const existingProduct = cart.find(
+          (item) => item.title === product.title
+        );
+        if (existingProduct) {
+          existingProduct.quantity += quantity;
+        } else {
+          product.quantity = quantity;
+          cart.push(product);
+        }
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert("Product added to cart");
+      }
+
+      function applyFilters() {
+        const query = document.getElementById("search").value.toLowerCase();
+        const selectedRange = document.getElementById("price-range").value;
+
+        const [minPrice, maxPrice] = selectedRange
+          ? selectedRange.split("-").map(Number)
+          : [0, Infinity];
+
+        const filteredProducts = window.products.filter((product) => {
+          const matchesSearch =
+            product.name.toLowerCase().includes(query) ||
+            product.description.toLowerCase().includes(query);
+          const matchesPrice =
+            product.price >= minPrice && product.price <= maxPrice;
+          return matchesSearch && matchesPrice;
+        });
+
+        displayProducts(filteredProducts);
+      }
+    </script>
+  </body>
+</html>
